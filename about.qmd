@@ -1,0 +1,17 @@
+---
+title: "About"
+image: jamie_n_friend.jpeg
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://bsky.app/profile/juemos.bsky.social
+    - icon: github
+      text: Github
+      href: https://github.com/juemos
+---
+
+## About This Blog
+
+I am a professor of Environmental Social Sciences in the [Stanford Doerr School of Sustainability](https://sustainability.stanford.edu/). My research focuses on human ecology and adaptability, demography and life history theory, and infectious-disease ecology. You can find more information on my [lab page](https://heeh.stanford.edu).
