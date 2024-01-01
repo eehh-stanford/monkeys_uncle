@@ -1,0 +1,36 @@
+---
+title: "Imagining Adaptive Societies"
+author: "James Holland Jones"
+date: "2024-01-01"
+categories:
+  - CliFi
+  - climate change
+---
+
+This winter, I once again have the great fortune of co-teaching with [Margaret Levi](https://politicalscience.stanford.edu/people/margaret-levi) and [Paula Moya](https://english.stanford.edu/people/paula-moya) our class entitled [*Imagining Adaptive Societies*](https://news.stanford.edu/report/2023/06/15/imaging-adaptive-futures/). In this class, we explore how speculative fiction can be used as a tool for imagining adaptable, sustainable, and just societies that can respond to the major challenges of our age. When it comes to the topic of environmental change, it's so easy to get bogged down in dystopia. We make a concerted effort to think about better futures. Frankly, this can be a bit of a challenge, but that's part of what makes the project interesting.
+
+My fascination (some might suggest obsession) with climate fiction, or *CliFi*, first started when my friend [Michael McElliott](https://longnow.org/ideas/rip-michael-mcelligott/) (a.k.a., Mikl Em), who was the producer of the long-running lecture series at the Long Now Foundation's hilariously-hipster bar in San Francisco, [The Interval](https://theinterval.org/?ref=longnow.org), invited me to the Interval's green room in May of 2017 to hang out with the author and CliFi pioneer Kim Stanley Robinson, who was doing a reading from his recent CliFi novel, *New York 2140*.
+
+![Kim Stanley Robinson, reading from his novel *New York 2140,* at The Interval, May 9 2017.](KSR_at_the_Interval.JPG){fig-alt="Kim Stanley Robinson, reading from his novel *New York 2140* at The Interval, May 9 2017."}
+
+With KSR, his entourage, and Mikl, we talked extensively about the role of the world-building one has to do for speculative fiction in helping us think about adaptation, sustainability, and human-environment interactions more generally. Mikl, who was a massive science-fiction nerd, turned to me at one point and said, "you should give a talk on CliFi at the Interval!" I demurred. While it is true that I have read a lot of science fiction and thought a bit about its utility in stimulating imagination, I know nothing about literature or how one even goes about teaching a class rooted in the humanities.
+
+But the seed was definitely planted.
+
+When my wife was a fellow at the [Center for Advanced Study in the Behavioral Sciences](https://casbs.stanford.edu/) in 2017-2018, I spent a lot of time loitering up on the hill and talking with then-director Margaret Levi and various other smarties like [Shaz Attari](https://oneill.indiana.edu/faculty-research/directory/profiles/faculty/full-time/attari-shahzeen.html) and [Judy Wajcman](https://www.lse.ac.uk/sociology/people/judy-wajcman) about CliFi. On a Stanford Alumni Association trip in the summer of 2018, I was inspired by the spectacular locale of the Mashpi Lodge in Ecuador to roll out a first draft of a talk on CliFi. Eventually, I did give a version of the [talk at the Interval](https://theinterval.org/salon-talks/02019/jan/29/science-climate-fiction-jones-clifi). I focused on how long-form narrative might fit into the science of behavior change. This led to a nice write-up by the [Stanford News Service](https://earth.stanford.edu/news/stranger-fiction-climate-storytelling), where I got to chat about the utility of literature with Pulitzer-Prize-winning author [Adam Johnson](https://english.stanford.edu/people/adam-johnson). That was cool.
+
+Shortly before the COVID-19 pandemic, Margaret Levi and I received a grant from [The Changing Human Experience Initiative](https://humanexperience.stanford.edu/) at Stanford for a project focused on the social imagination in speculative fiction, especially CliFi. There is lots of humanistic scholarship on speculative fiction and there are plenty of physical scientists who weigh in on the topic (and are frequently authors!). But, as noted by Robert Heinlein in his [famous 1947 essay](https://en.wikipedia.org/wiki/On_the_Writing_of_Speculative_Fiction), speculative fiction is not fiction about the science and technology, per se, but rather human reactions to new situations caused by science and technology. It seemed to us like there was a real deficit on the social-science scholarship related to world-building and speculative fiction.
+
+We had grand plans. Alas, the pandemic really messed them up. It's a long and not very interesting story---as with so many pandemic-disruption stories---but we decided that the best way to fulfill the spirit of the project was to teach a class. We recruited Paula, who has a long-standing interest in speculative fiction and actually knows about literature!
+
+So, here we are. This is the second time we're teaching the class and it might, alas, be the last. Margaret is retired and winter quarter is her last teaching quarter at Stanford. It should be fun. I've learned so much from Margaret and Paula, not to mention our students and TAs. This year, we will read three novels
+
+1.  *Parable of the Sower* by Octavia Butler
+2.  *New York 2140* by Kim Stanley Robinson
+3.  *The Water Knife* by Paolo Bacigalupi
+
+In addition, we will read a number of shorter works, including selections from KSR's *Ministry of the Future*, N.K. Jemisin's novelette, *Emergency Skin*, and short stories by Malka Older ("Narrative Disorder") and Charlie Jane Anders ("Because Change was the Ocean and We Lived by her Mercy"). We might even have some visitors, but that's a secret (for now).
+
+We try to triple-team every lecture. I generally talk about the climate science and human ecology; Margaret talks about the governance, history, and social elements of the works; Paula talks about the novels as works of literature, analyzing the plots and characters and generally improving everyone's analytical game.
+
+We start in a week. Here's hoping my recently-operated-upon ankle has healed enough by then that I can actually walk to class!
