@@ -106,4 +106,4 @@ The nonzero probability of these very extreme events causes the variance to blow
 
 It's touch to try to minimize variance when the variance is infinite! It's also impossible to rank prospects according to their moments (e.g., mean and variance) when the moments aren't defined.
 
-Organisms (like humans) who face real---or _Knightean_---uncertainty still need to make decisions. If they can't choose on the basis of expectations, what do they do? It's an important question and will be the subject of future posts and (hopefully) forthcoming papers.
+Organisms (like humans) who face real---or _Knightian_---uncertainty still need to make decisions. If they can't choose on the basis of expectations, what do they do? It's an important question and will be the subject of future posts and (hopefully) forthcoming papers.
