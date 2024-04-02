@@ -14,6 +14,8 @@ website:
         href: https://bsky.app/profile/juemos.bsky.social
       - icon: mastodon
         href: https://fediscience.org/@juemos
+      - icon: rss
+        href: index.xml
 format:
   html:
     theme: yeti
