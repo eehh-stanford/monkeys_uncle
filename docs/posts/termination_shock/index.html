@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="James Holland Jones">
+<meta name="dcterms.date" content="2024-05-07">
+
+<title>Monkey’s Uncle - Termination Shock</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Monkey’s Uncle</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/juemos" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://bsky.app/profile/juemos.bsky.social" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://fediscience.org/@juemos" rel="" target=""><i class="bi bi-mastodon" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml" rel="" target=""><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Termination Shock</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">CliFi</div>
+                <div class="quarto-category">climate change</div>
+                <div class="quarto-category">Adaptation</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>James Holland Jones </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 7, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="termination_shock_cover.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>I just re-read Neal Stephenson’s Climate-Fiction novel, <em>Termination Shock</em>. I read this the moment it was published in 2021 and enjoyed it immensely. Having recently finished my winter class, <a href="https://eehh-stanford.github.io/monkeys_uncle/posts/clifi2023/">Imagining Adaptive Societies</a>, where I riffed on a few Stephenson-vs.-Robinson comparisons, and lacking anything I desperately wanted to read, it seemed like an opportune time to revisit.</p>
+<p>A few things jumped out to me on this second reading.</p>
+<section id="stephensons-vision-of-america-is-bleak" class="level2">
+<h2 class="anchored" data-anchor-id="stephensons-vision-of-america-is-bleak">Stephenson’s Vision of America is Bleak</h2>
+<p>The novel is set in the near future. It’s not entirely clear when, but it isn’t too far away. For example, the main character, Frederika Mathilde Louisa Saskia, is the Queen of of the Netherlands and is forty-five years old in the book. Saskia, as she is known, is the granddaughter of Queen Beatrix, presumably the (fictional) daughter of King Willem-Alexander (described in both the book and Wikipedia as an “avid pilot”), who was born in 1967. As she is a fictional character, we can’t say for sure when she was born, but Willem-Alexander’s actual children were all born around the turn of the century. So, it could be as late as the 2040s, but I suspect a bit earlier. Saskia’s husband died following COVID infection while volunteering at a hospital. There is textual evidence for COVID pandemics in in 2023 and 2027, in addition to the 2019-2022 one we know all too well. This doesn’t tell us that much because it appears that COVID has become an annual event like influenza is currently (and COVID may already actually be). Saskia had the “latest and greatest” COVID vaccine before flying to Texas. This said, if the husband of a titular head of state is volunteering at a hospital, it is probably during a pandemic crisis, so let’s say 2027. This puts an upper date on when Saskia’s sixteen-year-old daughter, Lotte, could have been born. All told, this makes me think the novel takes place in the mid-2030s. The whole shit-show described by <em>Termination Shock</em> apparently takes place 15 or so years from now.</p>
+<p>In a glowing review in <em>Reason</em> magazine, Peter Suderman <a href="https://reason.com/2021/11/16/neal-stephensons-termination-shock-is-a-glorious-sci-fi-vision-of-how-to-respond-to-global-warming-one-geoengineering-problem-at-a-time/">suggests</a> that Stephenson’s novel is a “Glorious Sci-Fi Vision of How To Respond to Global Warming,” one that favors innovation over legislation. I agree that there is lots of adaptation grist for the mill in <em>Termination Shock</em>, but the thought that the solutions people find in the book to cope with the increasing downsides of climate change are sufficient, or even preferable to actually addressing the root causes of the climate disaster is utter madness. Reading the chaos that Stephenson has written into the United States of the 2030s suggests to me that he can’t think it’s sufficient. He just (like me) is fascinated by people’s ingenuity and sees dramatic potential in these adaptations for, you know, a novel. Stephenson may have a reputation for anticipating new technologies, but ultimately, he is a fiction writer who has to tell a good story. This doesn’t mean that he actually thinks that the seat-of-pants adaptation depicted in the novel is “the very best we can do.”</p>
+<p>As products of the Pleistocene, humans were born of climate change. Adapting is something we excel at and have always done. However, one of the most important—and impressive—adaptations our species possesses is the capacity to organize to achieve outcomes that are much greater than the sum of the individual inputs. Anthropogenic climate change is the greatest challenge for collective-action that <em>Homo sapiens</em> has ever faced. We simply must be up to the task.</p>
+<p>While the climate crisis is obviously global, in both reality and the novel, I want to focus on the situation in the United States that Stephenson depicts in <em>Termination Shock</em>. There are four features, in particular, that I read as striking warnings that this is not a world we want to let happen: the physical environment of much of the country has become essentially unlivable, endemic vector-borne infectious disease and the threat of pandemics are facts of life, there are terrifying and highly-destructive invasive species wreaking chaos, and the USA is apparently a failed—or at least failing—state. I seriously don’t think this is a near-future we want.</p>
+<section id="un-survivable-wet-bulb-temperatures" class="level3">
+<h3 class="anchored" data-anchor-id="un-survivable-wet-bulb-temperatures">Un-Survivable Wet-Bulb Temperatures</h3>
+<p>To survive the summer daytime heat in Texas and other parts of the American South, you need to wear a personal air conditioner. These are known as <em>earthsuits</em>.</p>
+<p>In a warmer world, it will be increasingly difficult for people (and other organisms) to maintain physiological homeostasis—i.e., stay cool. Normal core temperature for humans is 37°C. Homeostatic mechanisms work to maintain this temperature and tolerances around it are actually quite tight: a 4° increase or 2° decrease can be life-threatening.</p>
+<p>Humans have at most about 30% mechanical efficiency. This means that 70% of the work we do ends up generating heat. Our primary mechanism for dumping excess heat in order to maintain homeostasis is the evaporative cooling that comes from sweating. For a thermal challenge to be compensable, there must be a water-vapor pressure gradient between the skin surface and the surrounding environment. If the air is saturated, there’s no gradient and the thermal challenge is uncompensable.</p>
+<p>Wet-bulb temperature (WBT) is the lowest temperature that can be reached under ambient conditions by the evaporation of water only. As the WBT increases past 26°C (79°F), it starts to become dangerous. The 2003 European heat wave, which killed 20,000 people, maxed out with a WBT of 28°C. Anything over 30 is very dangerous and a WBT of 35°C (about 95°F) is not survivable by humans for more than about 20 minutes. Until quite recently, it’s been thought that a WBT of 35°C was effectively impossible under the prevailing climatic conditions of Earth, but as of 2020, there here have been at least <a href="https://doi.org/10.1126/sciadv.aaw1838">14 verified recordings</a> of WBT in excess of the 35°C threshold of human survivability in the Persian Gulf and Pakistan since 1979. Climate change will increases these events. Modeling studies by <a href="https://doi.org/10.1126/sciadv.1603322">Im and colleagues (2017)</a> and <a href="https://doi.org/10.1038/s41467-018-05252-y">Kang and Eltahir (2018)</a> project heatwaves that will cross this critical threshold repeatedly in the next 30 years in the hugely-populous areas of the Gangetic Plain in India and the North China Plain in China. These two regions sum to more than a billion people.</p>
+<p>Dangerous WBTs will be <a href="https://climateprimer.mit.edu">increasingly common</a> in the United States as well. The worst regions look like they will be in the Mississippi River basin, spilling over into East Texas. These are areas where high summer temperatures combine with extreme humidity and that’s the combination that makes for dangers WBTs.</p>
+<p>In <em>Termination Shock</em>, we read about people requiring earthsuits to work during the day in Waco and along the Brazos River to Houston, as well as at protests on the campus of Texas A&amp;M in College Station and the West Texas ranch belonging to T.R. Schmidt, the billionaire who wildcats a geoengineering solution to global warming.</p>
+<p>Earthsuits are described as “a whole basket of technologies, some of which belonged to the realm of materials science, such as fabric, or of mechanical engineering, such as pumps and fans.” But really the core of the suit was a portable refrigeration system, which is an <a href="https://www.greenoptimistic.com/einstein-refrigerator/">Einstein–Szilard refrigerator</a>. It’s a cool idea (as it were) and might actually be workable in the not-too-distant future, though whether we will have functional suits (as opposed to structures) cooled by Einstein–Szilard refrigerator is an open question.</p>
+<p>The simple fact is that the large swaths of the United States, including the second-largest state by population and the <a href="https://www.census.gov/newsroom/press-releases/2023/population-trends-return-to-pre-pandemic-norms.html">region that has driven population growth</a> in recent years, are largely uninhabitable without substantial technological innovation and (presumably expensive) adaptation in the mid-2030s world of <em>Termination Shock</em>, is troubling to say the least. This strikes me as an outcome that is worth organizing to prevent.</p>
+</section>
+<section id="perpetual-multidemic" class="level3">
+<h3 class="anchored" data-anchor-id="perpetual-multidemic">Perpetual Multidemic</h3>
+<p>We had a “<a href="https://www.yalemedicine.org/news/tripledemic-flu-rsv-and-covid-19">tripledemic</a>” of influenza, RSV, and SARS-CoV-2 in the winter of 2022. This was nothing compared to the ongoing infection pressure of the near future depicted in <em>Termination Shock</em>.</p>
+<p>Queen Saskia received “all the shots recommended for travel to Texas.” These included dengue, Zika, COVID, and malaria. It’s probably worth noting that none of these are currently endemic to Texas (except COVID). The good news is that we apparently have effective vaccines for dengue, Zika, and malaria in this timeline! There is a moderately-effective vaccine for dengue for use in children who have already had one dengue infection. Of course, <a href="https://www.cdc.gov/vaccines/vpd/dengue/public/index.html">its maker is discontinuing its manufacturing</a> because it’s hard to make money off of a vaccine for a disease of mostly poor people of the Global South. It just be that way. Maybe if dengue becomes truly endemic in Texas and related locales, the profit motive will return. There’s no vaccine for Zika yet, but there is some promise, and malaria is a whole can of worms (<em>Plasmodia</em>, actually).</p>
+<p>Again, this is not a future we should look forward to, even if we develop safe and effective vaccines, pathogens evolve and our recent experience teaches us that safe and effective vaccine availability doesn’t necessarily translate into wide adoption.</p>
+</section>
+<section id="feral-hogs" class="level3">
+<h3 class="anchored" data-anchor-id="feral-hogs">Feral Hogs!</h3>
+<p>In the America of <em>Termination Shock</em>, we are well beyond <a href="https://knowyourmeme.com/memes/30-50-feral-hogs">30-50 Feral Hogs</a>. Imported European boars have hybridized with escaped agricultural giants to create truly terrifying beasts, running hog-wild in Texas, Louisiana, and beyond. One does wonder how these giant hogs manage to shed heat in an environment that requires humans to don personal refrigerators, but they still sound pretty terrifying. (presumably, these big hogs would need to keep very close to water at all times in such heat)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-feral-swine-population-map.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Distribution of feral swine in the US in 2023 (<a href="https://www.aphis.usda.gov/operational-wildlife-activities/feral-swine/distribution">USDA</a>)</figcaption>
+</figure>
+</div>
+<p>The swine are not the only invasive species that creates mischief in <em>Termination Shock</em>. Invasive fire ants, apparently attracted to the ozone of residential air-conditioning units, get into the units and interfere with the electrical relays that control the units, making them non-functional. In the Summer of the Great Relay Shortage, this happened on a massive scale, overwhelming the capacity of the supply chain to provide replacement relays and thereby displacing hundreds of thousands of Texans in the potentially deadly heat and humidity. (this, by the way, is another <a href="https://www.kennedyac.com/post/protecting-your-air-conditioning-unit-from-ants">real phenomenon</a>)</p>
+<p>Sounds like a lot of fun.</p>
+</section>
+<section id="ominous-geopolitical-suggestions" class="level3">
+<h3 class="anchored" data-anchor-id="ominous-geopolitical-suggestions">Ominous Geopolitical Suggestions</h3>
+<p>Possibility the most disturbing elements of the <em>Termination Shock</em> world center on the status of the United States of the near future. There is nothing explicit, but there are hints. For example, we are told that there is a “general inability of Americans to travel outside of the Lower 48.” The United States, which once seemed like an “omnipotent hyperpower,” is more like a “beached whale” in the <em>Termination Shock</em> world.</p>
+<p>Discussing the possible consequences of T.R. Schmidt’s geoengineering experiment, the Scottish risk analyst, Alastair, says that since Texas would likely see Schmidt as a hero, any legal consequences would come down to “what’s left of the United States government.” He goes on to say that dysfunction in Congress and the courts virtually eliminates any legal risk whatsoever.</p>
+<p>When Canadian-Sikh stick fighter, Laks, is preparing his clandestine entry to the US, his Uncle Dharmender says, “the United States is a mess, sure. But it’s not like going to North Korea.” Well, at least we have that going for us.</p>
+<p>The United States, apparently is “a basket case and global laughingstock.” It is “completely insane and out-of-hand,” a “clown show.” People rely on the “the sheer incompetence of the United States” in doing their business.</p>
+<p>Does the libertarian ideal really involve giving up on the last best hope on Earth?</p>
+</section>
+</section>
+<section id="is-this-really-what-we-want" class="level2">
+<h2 class="anchored" data-anchor-id="is-this-really-what-we-want">Is This Really What We Want?</h2>
+<p>Suderman suggests that the crisis of climate change simply can’t be solved—it’s “too big, too complex, involving too many people, too many governments, too many interests. You can’t wrap your head around it. No one can.” Do we really believe that the sort of coping adaptations chronicled in <em>Termination Shock</em> are really “the very best we can do”?</p>
+<p>The obvious contrast—and one that Suderman, in fact, makes—is the transformative, all-encompassing approach depicted in Kim Stanley Robinson’s <em>Ministry for the Future</em>.</p>
+<p>The idea that we can either pursue a top-down governance where we attempt to change laws and norms or we pursue a piecemeal, bottom-up approach to adaptation is a false dichotomy. I recently saw a talk by and have since read the work of Charles Sabel and David Vicor (<a href="https://press.princeton.edu/books/hardcover/9780691224558/fixing-the-climate">book here</a>; <a href="https://www.bostonreview.net/forum/charles-sabel-david-g-victor-how-fix-climate/">excerpt here</a>). Sabel and Victor argue forcefully that this (and a couple other) false dichotomies are holding us back in our capacity to address the climate crisis, and suggest that we need to pursue an experimentalist approach to fixing climate change. The climate crisis is, indeed, a very difficult problem and we are awash in uncertainty over what the best ways to fix it even are. They write, “the only way to move beyond the status quo is to destabilize it, and then learn, quickly, to use the daring and imagination that bubble up in the open space to develop better approaches” (Sable &amp; Victor 2022: 9). This is the bottom up. It is held together by what starts out as “a thin consensus” of individuals and institutions motivated to act. This consensus may be thin to start, but it needs to set bold goals. It’s these bold goals that hold the structure together, not the specific details of the plan. The thin consensus then “thickens with effort” as we learn about what—and who—works. This is top down. We need both if we are going to get through this crisis.</p>
+<p><em>Termination Shock</em> is a remarkable book, with lots of interesting ideas. It is not a blueprint for how to solve the climate crisis, and I would be shocked if Neal Stephenson actually believed that it was. The bleakness of the portrait Stephenson paints for the United States of the near future makes it clear that this is something worth fighting against.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
