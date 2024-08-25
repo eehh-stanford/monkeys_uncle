@@ -32,15 +32,15 @@ The difficulty of the inference problem is given by the standard deviation of yo
 
 The last quantity, data quality, is probably the most interesting. It is the correlation between the outcome ($G$) and the sampling mechanism ($R$). We can call this $\rho_{G,R}$.
 
-Consider the sample mean, $\bar{G}_n$. It's a standard estimator of the quantity we're interested in (i.e., $G_N$) because, as Meng notes, it's consistent under both both design and model-based samples. We can write the sample mean in terms of what Meng calls its $R$-Mechanism, where $R$ stands for *Reporting*, *Responding*, or *Responding* for big data or *Random* for a probabilistic sample
+Consider the sample mean, $\bar{G}_n$. It's a standard estimator of the quantity we're interested in (i.e., $G_N$) because, as Meng notes, it's consistent under both both design and model-based samples. We can write the sample mean in terms of what Meng calls its $R$-Mechanism, where $R$ stands for *Reporting*, *Responding*, or *Recording* for big data or *Random* for a probabilistic sample. Specifically including the $R$-mechanism, the sample mean is:
 
 $$
-\bar{G}_n=\frac{1}{n} \sum_{j \in I_n} Y_j=\frac{\sum_{j=1}^N R_j G_j}{\sum_{j=1}^N R_j},
+\bar{G}_n=\frac{1}{n} \sum_{j \in I_n} Y_j=\frac{\sum_{j=1}^N R_j G_j}{\sum_{j=1}^N R_j}.
 $$
 
 Here $I_n$ is a size-$n$ subset of $\{1, \ldots , N\}$ (i.e., your sample) and $R_j=1$ when $j$ is in the set $I_n$ and zero otherwise.
 
-When we gather a traditional design-based or model-based sample, the $R_j$ are random. However, for a convenience sample (like social media users responding to a poll), they are typically not. Meng (2018: 689) writes: "For many Big Data out there, however, they are either self-Reported or administratively Recorded, with no consideration for probabilistic sampling whatsoever. Even in cases where the data collector started with a probabilistic sampling design, as in many social science studies or governmental data projects, in the end we have only observations from those who choose to Respond, a process which again is outside of the probabilistic sampling framework. These "R-mechanisms" therefore are crucial in determining the accuracy of $G_n$ as an estimator of $G_N$". 
+When we gather a traditional design-based or model-based sample (for more on the distinction, check out Steve Thompson's great book, [_Sampling_](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118162934)), the $R_j$ are random. However, for a convenience sample (like social media users responding to a poll), they are typically not. Meng (2018: 689) writes: "For many Big Data out there, however, they are either self-Reported or administratively Recorded, with no consideration for probabilistic sampling whatsoever. Even in cases where the data collector started with a probabilistic sampling design, as in many social science studies or governmental data projects, in the end we have only observations from those who choose to Respond, a process which again is outside of the probabilistic sampling framework. These 'R-mechanisms' therefore are crucial in determining the accuracy of $G_n$ as an estimator of $G_N$". 
 
 We can put this all together to show that the estimation error (i.e., the difference between our sample estimate and the population value) is given by the following remarkably simple formula:
 
