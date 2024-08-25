@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="James Holland Jones">
-<meta name="dcterms.date" content="2023-12-30">
+<meta name="dcterms.date" content="2024-08-24">
 
-<title>Monkey’s Uncle - Monkey’s Uncle Reprise</title>
+<title>Monkey’s Uncle - Meng’s Big Data Paradox and the Recent Twitter Poll</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -69,6 +103,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -125,10 +188,11 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Monkey’s Uncle Reprise</h1>
+      <h1 class="title">Meng’s Big Data Paradox and the Recent Twitter Poll</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
-                <div class="quarto-category">scicomm</div>
+                <div class="quarto-category">statistics</div>
+                <div class="quarto-category">American politics</div>
+                <div class="quarto-category">big data</div>
               </div>
                   </div>
   </div>
@@ -146,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 30, 2023</p>
+        <p class="date">August 24, 2024</p>
       </div>
     </div>
     
@@ -165,19 +229,63 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>I started writing my blog, Monkey’s Uncle, back in 2008. My wife had major surgery and I was a bit distracted from the task of academic writing. I thought that having a blog might allow me to keep writing in a mode that would require less concentration. Somewhat to my surprise, it worked pretty well.</p>
-<p>As I wrote more, a funny thing happened. People actually read my posts and sometimes this led to collaborations. One of my most productive collaborations came about because <a href="https://www.epfl.ch/labs/salathelab/">Marcel Salathé</a> chanced upon my blog. We went on to write what would be several of the most-cited papers (for example: <a href="https://doi.org/10.1073/pnas.1009094108">here</a> <a href="https://doi.org/doi:10.1073/pnas.1002826107">here</a> and <a href="https://doi.org/doi:10.1371/journal.pcbi.1000736">here</a>) either of us would write (so far, at least).</p>
-<p>In the last few years, I’ve essentially stopped blogging. Stanford and WordPress never completely got along and it was always a bit of a hassle to maintain. The folder that held the images for blog posts somehow disappeared and now the posts that were supposed to have embedded images just have blind links in them. For a while, Twitter effectively took the place of the blog. Putting together <a href="https://twitter.com/juemos/status/1278856699957264384">threads</a> describing my work was fun, but with Twitter’s effective demise as a reasonable tool for scientific communication, I’ve found myself wanting to get back into actual blogging. The seed for re-starting my blog was actually planted by <a href="https://johnquiggin.com/">John Quiggin</a>’s lament (in a comment on my extra-long Twitter thread) that people don’t blog anymore. I have also been inspired by my interactions with <a href="https://henryfarrell.net/wp/">Henry Farrell</a>, who both blogs on his personal site and is a regular contributor to <a href="https://crookedtimber.org/">Crooked Timber</a>.</p>
-<p>Quarto has opened up new opportunities for blogging. I already use it for my course notes and my <a href="https://eehh-stanford.github.io/lab_manual/">lab manual</a>, so it seemed natural to give it a try for blogging as well. Quarto has the tremendous benefit of supporting technical writing, embedding code, rendering equations, etc. This sounds promising: my previous blog posts had less of this material than I wanted because of technical limitations of the site.</p>
-<p>There will be a learning curve here, no doubt. The aesthetics are a bit spare so far. Hopefully, I can figure out how to make a nice header, maybe even with my favorite monkey picture.</p>
+<p>I decided to do a cocktail-napkin calculation this morning, as one does. Since Elon Musk bought the social-media platform formerly known as Twitter in October of 2022, there has been a clear shift to the right that many commentators have noted. Earlier this week, on the second day of the Democratic National Convention, Musk posted a Twitter poll about users’ preferences between the two presidential candidates, Harris and Trump. His poll, which collected nearly 5.85 million votes, revealed a 73% to 27% preference for Trump. Musk noted that the poll was “super unscientific,” but the vibe of the whole thing was that he was presenting the truth that the mainstream media is afraid to print. This has led some to worry that this is part of the ground game for claiming a rigged election if Trump loses.</p>
+<p>Most polls suggest that the race is, in fact, very tight, with the two candidates in a nearly even race, though the most recent polls suggest a <a href="https://projects.fivethirtyeight.com/polls/president-general/2024/national/">small advantage for Harris</a>. This suggests that Musk’s poll differs from the overall consensus by around 20-25 percentage points.</p>
+<p>As with many others, I wondered if maybe this poll is telling us more about the composition of Twitter than it is about the US presidential election. There is <a href="https://www.bloomberg.com/news/articles/2024-06-12/elon-musk-has-made-x-more-right-leaning-study-shows">good evidence</a> that the platform has shifted <a href="https://www.pbs.org/newshour/politics/how-elon-musk-uses-his-x-social-media-platform-to-amplify-right-wing-views">substantially to the right</a>. <a href="https://www.washingtonpost.com/technology/2024/08/11/musk-x-feed-politics-trump/">Musk’s own posts</a> have also shifted considerably toward right-wing topics.</p>
+<p>In 2018, the Harvard statistician Xiao-Li Meng wrote <a href="https://doi.org/10.1214/18-AOAS1161SF">a paper</a> where he coined the term <em>The Big Data Paradox</em>, where “the more the data, the surer we fool ourselves.” Appropriately enough for our current problem, Meng was trying to understand why the polls seemed to be so wrong in the 2016 US presidential election. Most polls had Trump losing and, of course, that didn’t actually happen.</p>
+<p>That was about the time that our collective infatuation with big data was also taking off. The thinking that you don’t have to look hard to find is that with enough data, we don’t have to worry about tedious things like sampling design or measurement error. Generally there is some vague gesturing toward the Law of Large Numbers or the like.</p>
+<p>Suppose we have a sample of size <span class="math inline">\(n\)</span> of a population of size <span class="math inline">\(N\)</span> and we want to estimate some quantity (such as the share of a population’s vote) <span class="math inline">\(G_N\)</span> from a our sample estimate <span class="math inline">\(\bar{G}_n\)</span>.</p>
+<p>Meng derived an identity that shows that there are three (and only three) factors that determine the estimation error for some quantity of interest. These are:</p>
+<ol type="1">
+<li>Data quantity</li>
+<li>Problem difficulty</li>
+<li>Data quality</li>
+</ol>
+<p>Data quantity represents both the size of your statistical sample (<span class="math inline">\(n\)</span>), but also the size of the population for which you are making your inference (<span class="math inline">\(N\)</span>). You can think of those together as the fraction of the population sampled, <span class="math inline">\(f=n/N\)</span>.</p>
+<p>The difficulty of the inference problem is given by the standard deviation of your quantity of interest (<span class="math inline">\(\sigma_G\)</span>). Meng notes that if <span class="math inline">\(\sigma_G=0\)</span>, your inference problem is easy since you only need a sample size of <span class="math inline">\(n=1\)</span> to infer it perfectly. As the standard deviation gets bigger, you need an increasingly large sample to make a good estimate.</p>
+<p>The last quantity, data quality, is probably the most interesting. It is the correlation between the outcome (<span class="math inline">\(G\)</span>) and the sampling mechanism (<span class="math inline">\(R\)</span>). We can call this <span class="math inline">\(\rho_{G,R}\)</span>.</p>
+<p><span class="math display">\[
+\bar{G}_n=\frac{1}{n} \sum_{j \in I_n} Y_j=\frac{\sum_{j=1}^N R_j G_j}{\sum_{j=1}^N R_j},
+\]</span> Here <span class="math inline">\(I_n\)</span> is a size-<span class="math inline">\(n\)</span> subset of <span class="math inline">\(\{1, \ldots , N\}\)</span> (i.e., your sample) and <span class="math inline">\(R_j=1\)</span> when <span class="math inline">\(j\)</span> is in the set <span class="math inline">\(I_n\)</span> and zero otherwise.</p>
+<p>When we gather a traditional design-based or model-based sample, the <span class="math inline">\(R_j\)</span> are random. However, for a convenience sample (like social media users responding to a poll), they are not random. Meng (2018: 689) writes: “For many Big Data out there, however, they are either self-Reported or administratively Recorded, with no consideration for probabilistic sampling whatsoever. Even in cases where the data collector started with a probabilistic sampling design, as in many social science studies or governmental data projects, in the end we have only observations from those who choose to Respond, a process which again is outside of the probabilistic sampling framework. These”R-mechanisms” therefore are crucial in determining the accuracy of <span class="math inline">\(G_n\)</span> as an estimator of <span class="math inline">\(G_N\)</span>“.</p>
+<p>We can put this all together to show that the estimation error (i.e., the difference between our sample estimate and the population value) is given by the following remarkably simple formula:</p>
+<p><span class="math display">\[
+\hat{G}_n - \hat{G}_N = \rho_{G,R}\;\; \times\;\; \sqrt{\frac{N-n}{n}}\;\; \times\;\; \sigma_G
+\]</span></p>
+<p>If <span class="math inline">\(\rho_{G,R}\)</span> is zero because your response indicator is random, then you have an unbiased estimate.</p>
+<p>We can apply this decomposition to Elon Musk’s poll.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="monkey_contemplates_whats_above.jpg" class="img-fluid figure-img"></p>
-<figcaption>Red colobus mother with infant, sitting on the ground, observing the drama taking place in the trees above her. Picture taken in Kibale National Park, Uganda in 2012.</figcaption>
+<p><img src="very_scientific_twitter_poll.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
 </figure>
 </div>
-<p>My goal is to keep my posts a bit shorter than during peak Monkey’s Uncle. I mean, seriously, who really wants to read a 7000-word, slightly emo essay on the sad state of contemporary anthropology?</p>
-<p>I don’t use Twitter anymore, but you can find me on <a href="https://bsky.app/profile/juemos.bsky.social">Blueksy</a>. I also have a <a href="https://fediscience.org/@juemos">Mastodon</a> account. So far, at least, these are a far cry from peak Academic Twitter, but they have promise. Fewer right-wing trolls and Russian bots, so they’ve got that going for them.</p>
+<p>I used the following values: <a href="https://www.census.gov/newsroom/press-releases/2022/2020-presidential-election-voting-report.html">154.6 million people voted in the presidential election in 2020</a>. Turnout has been trending up, so we can use an estimate of <span class="math inline">\(N=160,000,000\)</span> (using a bigger value for <span class="math inline">\(N\)</span> makes the estimate more conservative). From the screen-captured image from Twitter, we can see that around 5.85M voted in the poll. As I noted above, <span class="math inline">\(d = G_n - G_N = 0.23\)</span> (ish). I’m less certain about what a sensible value for the standard deviation of <span class="math inline">\(G_N\)</span> is, but polls typically have a 5% “margin of error,” which seemed like as good a place to start as any. So now all we have to do is plug in and solve for <span class="math inline">\(\rho_{G,R}\)</span>. The correlation I get is</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.23</span><span class="sc">/</span>(<span class="fu">sqrt</span>((<span class="dv">160</span><span class="fl">-5.85</span>)<span class="sc">/</span><span class="fl">5.85</span>)<span class="sc">*</span><span class="fl">0.05</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8961155</code></pre>
+</div>
+</div>
+<p>That seems like an absurdly high correlation. I was convinced that it had to be wrong, but if the input numbers are even approximately right, that correlation has to be very high to get such a big difference between the polling consensus of a very close race and the result of Musk’s Twitter poll with its value of approximately +50 for Trump. Now, of course, this assumes that the polls are a better reflection of reality and it was the failure of polls in 2016 that led to Meng’s paper in the first place. I am neither political scientist nor survey researcher, so I won’t comment on the quality of the current polls. But seriously, does anyone really believe that Trump has a large lead over Harris in our current social and political climate? I certainly hope that we’ve learned from our previous experience that big data do not guarantee correct inference and it certainly doesn’t obviate the need for proper sampling!</p>
+<p>We can try various values of <span class="math inline">\(\sigma_G\)</span> as in the figure below. The high values of the standard deviations seem unlikely, given that the <a href="https://www.statista.com/statistics/1035992/winning-margins-us-presidential-elections-since-1789/">largest popular-vote margin since 2000</a> was 7.4% (Obama in 2012). Of course, it’s entirely possible that <span class="math inline">\(G_N\)</span> isn’t 0.5 either. Reducing the error from the value of <span class="math inline">\(d=0.23\)</span> to something lower (suggesting that Trump actually has a substantial lead among future voters) reduces the correlation in a linear fashion. However, in all of these cases, the value of <span class="math inline">\(\rho_{G,R}\)</span> remains relatively high compared to estimates of Meng (2018) or, e.g., the estimate of COVID vaccine uptake from Facebook surveys as reported by <a href="https://doi.org/10.1038/s41586-021-04198-4">Bradley et al.&nbsp;(2021)</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>calc_meng <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n=</span><span class="fl">5.85e6</span>,<span class="at">N=</span><span class="fl">160e6</span>,<span class="at">d=</span><span class="fl">0.23</span>,sigma) d<span class="sc">/</span>(<span class="fu">sqrt</span>((N<span class="sc">-</span>n)<span class="sc">/</span>n)<span class="sc">*</span>sigma)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sig <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.05</span>,<span class="fl">0.2</span>,,<span class="dv">100</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sig, <span class="fu">calc_meng</span>(<span class="at">sigma=</span>sig), <span class="at">type=</span><span class="st">"l"</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">"blue4"</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="fu">expression</span>(sigma[G]), </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="fu">expression</span>(rho[GR]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>But let’s be clear here: the value of the correlation is so high because the difference between Musk’s poll and the general polling consensus is so huge. Note also that this difference is even greater if Harris is actually leading <a href="https://projects.fivethirtyeight.com/polls/president-general/2024/national/">as suggested by recent national polls</a>.</p>
+<p>Meng (2018) found that a minuscule correlation of <span class="math inline">\(\rho_{G,R}=-0.005\)</span> for self-reported voting for Trump in 2016 in the Cooperative Congressional Election Study was enough to mess up the polls and catch everyone with their pants down. Bradley et al.&nbsp;(2021) estimated correlations between approximately 0.003 and 0.009 for the Delphi-Facebook COVID symptom tracker in the winter and spring of 2021, which overestimated actual vaccine uptake by approximately 14-20 percentage points. What does this <em>much</em> higher estimate (in absolute value) from Twitter mean for its composition in general?</p>
+<p>Honestly, I don’t know. It certainly suggests that people who follow Musk (and therefore were more likely to see the poll) are <em>strongly</em> biased to the right. Does that mean that Twitter as a whole is? Maybe. The next question, of course, is how representative Musk’s 193M followers are of the platform as a whole. But the algorithmic amplification of the site’s most-followed user means that even people who don’t follow Musk probably saw the post. I guess the bare minimum take-away here is to be <em>very</em> skeptical of Twitter polls that are meant to shed light on features of the general population.</p>
+<p>It does seem clear that the platform formerly known as Twitter has <a href="https://www.wired.com/story/musk-trump-support-x/">become a hotbed of misinformation</a>. Here is a <a href="https://www.rollingstone.com/culture/culture-features/elon-musk-twitter-misinformation-timeline-1235076786/">helpful timeline</a> of the changes in Twitter and Musk’s posting habits. It’s sad to watch. There was a time there when Scientific Twitter was an amazing place for communicating results and connecting to other scientists and science writers. I miss it.</p>
 
 
 

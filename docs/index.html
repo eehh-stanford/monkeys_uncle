@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,8 +62,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -93,16 +101,43 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="Monkey's Uncle" href="index.xml"></head>
+<link rel="alternate" type="application/rss+xml" title="Monkey's Uncle" href="index.xml" data-external="1"></head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Monkey’s Uncle</span>
     </a>
@@ -114,33 +149,33 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/juemos" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/juemos"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://bsky.app/profile/juemos.bsky.social" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://bsky.app/profile/juemos.bsky.social"> <i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://fediscience.org/@juemos" rel="" target=""><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://fediscience.org/@juemos"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -153,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-page-left">
 
       
     
@@ -166,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="Adaptation">Adaptation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="CliFi">CliFi <span class="quarto-category-count">(3)</span></div><div class="category" data-category="ESS185">ESS185 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TESCREAL">TESCREAL <span class="quarto-category-count">(1)</span></div><div class="category" data-category="adaptation">adaptation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="anthropology">anthropology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="anti-racism">anti-racism <span class="quarto-category-count">(1)</span></div><div class="category" data-category="climate change">climate change <span class="quarto-category-count">(2)</span></div><div class="category" data-category="narrative">narrative <span class="quarto-category-count">(1)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(1)</span></div><div class="category" data-category="scicomm">scicomm <span class="quarto-category-count">(1)</span></div><div class="category" data-category="uncertainty">uncertainty <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Adaptation">Adaptation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="American politics">American politics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="CliFi">CliFi <span class="quarto-category-count">(3)</span></div><div class="category" data-category="ESS185">ESS185 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TESCREAL">TESCREAL <span class="quarto-category-count">(1)</span></div><div class="category" data-category="adaptation">adaptation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="anthropology">anthropology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="anti-racism">anti-racism <span class="quarto-category-count">(1)</span></div><div class="category" data-category="big data">big data <span class="quarto-category-count">(1)</span></div><div class="category" data-category="climate change">climate change <span class="quarto-category-count">(2)</span></div><div class="category" data-category="narrative">narrative <span class="quarto-category-count">(1)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(1)</span></div><div class="category" data-category="scicomm">scicomm <span class="quarto-category-count">(1)</span></div><div class="category" data-category="statistics">statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="uncertainty">uncertainty <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -177,21 +212,61 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="CliFi,climate change,Adaptation" data-listing-date-sort="1715065200000" data-listing-file-modified-sort="1715109428530" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12">
+<div class="quarto-post image-right" data-index="0" data-categories="statistics,American politics,big data" data-listing-date-sort="1724482800000" data-listing-file-modified-sort="1724548146605" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1470">
 <div class="thumbnail">
-<p><a href="./posts/termination_shock/index.html"> <p class="card-img-top"><img src="posts/termination_shock/termination_shock_cover.jpg"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/meng_paradox/index.html" class="no-external"></a></p><a href="./posts/meng_paradox/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/meng_paradox/very_scientific_twitter_poll.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/meng_paradox/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/termination_shock/index.html">
 <h3 class="no-anchor listing-title">
-Termination Shock
+<a href="./posts/meng_paradox/index.html" class="no-external">Meng’s Big Data Paradox and the Recent Twitter Poll</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/meng_paradox/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
+statistics
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('American politics'); return false;">
+American politics
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('big data'); return false;">
+big data
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/meng_paradox/index.html" class="no-external">I decided to do a cocktail-napkin calculation this morning, as one does. Since Elon Musk bought the social-media platform formerly known as Twitter in October of 2022, there…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/meng_paradox/index.html" class="no-external">
+<div class="listing-date">
+Aug 24, 2024
+</div>
+<div class="listing-author">
+James Holland Jones
 </div>
 </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="CliFi,climate change,Adaptation" data-listing-date-sort="1715065200000" data-listing-file-modified-sort="1715109428530" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2264">
+<div class="thumbnail">
+<p><a href="./posts/termination_shock/index.html" class="no-external"></a></p><a href="./posts/termination_shock/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/termination_shock/termination_shock_cover.jpg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/termination_shock/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/termination_shock/index.html" class="no-external">Termination Shock</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/termination_shock/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('CliFi'); return false;">
 CliFi
@@ -203,14 +278,12 @@ climate change
 Adaptation
 </div>
 </div>
-<a href="./posts/termination_shock/index.html">
 <div class="listing-description">
-I just re-read Neal Stephenson’s Climate-Fiction novel, <em>Termination Shock</em>. I read this…
+<a href="./posts/termination_shock/index.html" class="no-external">I just re-read Neal Stephenson’s Climate-Fiction novel, <em>Termination Shock</em>. I read this the moment it was published in 2021 and enjoyed it immensely. Having recently finished…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/termination_shock/index.html">
+<a href="./posts/termination_shock/index.html" class="no-external">
 <div class="listing-date">
 May 7, 2024
 </div>
@@ -220,19 +293,19 @@ James Holland Jones
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="anthropology,anti-racism,TESCREAL" data-listing-date-sort="1711954800000" data-listing-file-modified-sort="1715037719376" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<div class="quarto-post image-right" data-index="2" data-categories="anthropology,anti-racism,TESCREAL" data-listing-date-sort="1711954800000" data-listing-file-modified-sort="1715037719376" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1141">
 <div class="thumbnail">
-<p><a href="./posts/aaba2024/index.html"> <p class="card-img-top"><img src="posts/aaba2024/vndj86_1b.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/aaba2024/index.html" class="no-external"></a></p><a href="./posts/aaba2024/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/aaba2024/vndj86_1b.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/aaba2024/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/aaba2024/index.html">
 <h3 class="no-anchor listing-title">
-AABA 2024
+<a href="./posts/aaba2024/index.html" class="no-external">AABA 2024</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/aaba2024/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('anthropology'); return false;">
 anthropology
@@ -244,14 +317,12 @@ anti-racism
 TESCREAL
 </div>
 </div>
-<a href="./posts/aaba2024/index.html">
 <div class="listing-description">
-I am recently back from the annual meeting of the American Association of Biological Anthropologists (AABA). Back in my first blogging period, I always liked to do…
+<a href="./posts/aaba2024/index.html" class="no-external">I am recently back from the annual meeting of the American Association of Biological Anthropologists (AABA). Back in my first blogging period, I always liked to do meeting…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/aaba2024/index.html">
+<a href="./posts/aaba2024/index.html" class="no-external">
 <div class="listing-date">
 Apr 1, 2024
 </div>
@@ -261,19 +332,19 @@ James Holland Jones
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="uncertainty,adaptation,ESS185" data-listing-date-sort="1705737600000" data-listing-file-modified-sort="1705798922960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9">
+<div class="quarto-post image-right" data-index="3" data-categories="uncertainty,adaptation,ESS185" data-listing-date-sort="1705737600000" data-listing-file-modified-sort="1705798922960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1705">
 <div class="thumbnail">
-<p><a href="./posts/tuncertain/index.html"> <p class="card-img-top"><img src="posts/tuncertain/index_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/tuncertain/index.html" class="no-external"></a></p><a href="./posts/tuncertain/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/tuncertain/index_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/tuncertain/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/tuncertain/index.html">
 <h3 class="no-anchor listing-title">
-Thinking About Uncertainty
+<a href="./posts/tuncertain/index.html" class="no-external">Thinking About Uncertainty</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/tuncertain/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('uncertainty'); return false;">
 uncertainty
@@ -285,14 +356,12 @@ adaptation
 ESS185
 </div>
 </div>
-<a href="./posts/tuncertain/index.html">
 <div class="listing-description">
-I have been pretty obsessed with risk for a while now. My interest in formal risk management was piqued when I began thinking about life-history strategies for variable…<em></em>
+<a href="./posts/tuncertain/index.html" class="no-external">I have been pretty obsessed with risk for a while now. My interest in formal risk management was piqued when I began thinking about life-history strategies for variable…<em></em></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/tuncertain/index.html">
+<a href="./posts/tuncertain/index.html" class="no-external">
 <div class="listing-date">
 Jan 20, 2024
 </div>
@@ -302,19 +371,19 @@ James Holland Jones
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="CliFi,narrative" data-listing-date-sort="1704787200000" data-listing-file-modified-sort="1705000119570" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="4" data-categories="CliFi,narrative" data-listing-date-sort="1704787200000" data-listing-file-modified-sort="1705000119570" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="407">
 <div class="thumbnail">
-<p><a href="./posts/novels2023/index.html"> <p class="card-img-top"><img src="posts/novels2023/novels2023.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/novels2023/index.html" class="no-external"></a></p><a href="./posts/novels2023/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/novels2023/novels2023.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/novels2023/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/novels2023/index.html">
 <h3 class="no-anchor listing-title">
-Novels (Mostly CliFi) from 2023, Cozy and Otherwise
+<a href="./posts/novels2023/index.html" class="no-external">Novels (Mostly CliFi) from 2023, Cozy and Otherwise</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/novels2023/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('CliFi'); return false;">
 CliFi
@@ -323,14 +392,12 @@ CliFi
 narrative
 </div>
 </div>
-<a href="./posts/novels2023/index.html">
 <div class="listing-description">
-I managed to read 28 novels in 2023. Most of these were climate fiction since that remains a teaching (and possibly research) interest.
+<a href="./posts/novels2023/index.html" class="no-external">I managed to read 28 novels in 2023. Most of these were climate fiction since that remains a teaching (and possibly research) interest.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/novels2023/index.html">
+<a href="./posts/novels2023/index.html" class="no-external">
 <div class="listing-date">
 Jan 9, 2024
 </div>
@@ -340,19 +407,19 @@ James Holland Jones
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="CliFi,climate change" data-listing-date-sort="1704096000000" data-listing-file-modified-sort="1704143570924" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="quarto-post image-right" data-index="5" data-categories="CliFi,climate change" data-listing-date-sort="1704096000000" data-listing-file-modified-sort="1704143570924" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="825">
 <div class="thumbnail">
-<p><a href="./posts/clifi2023/index.html"> <p class="card-img-top"><img src="posts/clifi2023/KSR_at_the_Interval.JPG" alt="Kim Stanley Robinson, reading from his novel *New York 2140* at The Interval, May 9 2017."  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/clifi2023/index.html" class="no-external"></a></p><a href="./posts/clifi2023/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/clifi2023/KSR_at_the_Interval.JPG" alt="Kim Stanley Robinson, reading from his novel *New York 2140* at The Interval, May 9 2017."  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/clifi2023/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/clifi2023/index.html">
 <h3 class="no-anchor listing-title">
-Imagining Adaptive Societies
+<a href="./posts/clifi2023/index.html" class="no-external">Imagining Adaptive Societies</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/clifi2023/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('CliFi'); return false;">
 CliFi
@@ -361,14 +428,12 @@ CliFi
 climate change
 </div>
 </div>
-<a href="./posts/clifi2023/index.html">
 <div class="listing-description">
-This winter, I once again have the great fortune of co-teaching with Margaret Levi and Paula Moya our class entitled <em>Imagining Adaptive Societies</em>. In this class, we explore how speculative fiction can be used as a tool for imagining adaptable, sustainable, and just societies that can respond to the major challenges…
+<a href="./posts/clifi2023/index.html" class="no-external">This winter, I once again have the great fortune of co-teaching with Margaret Levi and Paula Moya our class entitled <em>Imagining Adaptive Societies</em>. In this class, we explore…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/clifi2023/index.html">
+<a href="./posts/clifi2023/index.html" class="no-external">
 <div class="listing-date">
 Jan 1, 2024
 </div>
@@ -378,19 +443,19 @@ James Holland Jones
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="R,adaptation,ESS185" data-listing-date-sort="1704009600000" data-listing-file-modified-sort="1704081959829" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="6" data-categories="R,adaptation,ESS185" data-listing-date-sort="1704009600000" data-listing-file-modified-sort="1704081959829" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="417">
 <div class="thumbnail">
-<p><a href="./posts/plot_notes/index.html"> <p class="card-img-top"><img src="posts/plot_notes/index_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/plot_notes/index.html" class="no-external"></a></p><a href="./posts/plot_notes/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/plot_notes/index_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/plot_notes/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/plot_notes/index.html">
 <h3 class="no-anchor listing-title">
-Plotting Notes for Adaptation Class
+<a href="./posts/plot_notes/index.html" class="no-external">Plotting Notes for Adaptation Class</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/plot_notes/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
@@ -402,14 +467,12 @@ adaptation
 ESS185
 </div>
 </div>
-<a href="./posts/plot_notes/index.html">
 <div class="listing-description">
-I will be teaching my class, Earth System Science 185: Adaptation, again this winter quarter. One of the stated learning outcomes for this class is to be able to “interpret…
+<a href="./posts/plot_notes/index.html" class="no-external">I will be teaching my class, Earth System Science 185: Adaptation, again this winter quarter. One of the stated learning outcomes for this class is to be able to “interpret…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/plot_notes/index.html">
+<a href="./posts/plot_notes/index.html" class="no-external">
 <div class="listing-date">
 Dec 31, 2023
 </div>
@@ -419,19 +482,19 @@ James Holland Jones
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="news,scicomm" data-listing-date-sort="1703923200000" data-listing-file-modified-sort="1704048278074" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="7" data-categories="news,scicomm" data-listing-date-sort="1703923200000" data-listing-file-modified-sort="1704048278074" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="473">
 <div class="thumbnail">
-<p><a href="./posts/welcome/index.html"> <p class="card-img-top"><img src="posts/welcome/monkey_contemplates_whats_above.jpg"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/welcome/index.html" class="no-external"></a></p><a href="./posts/welcome/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/welcome/monkey_contemplates_whats_above.jpg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/welcome/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/welcome/index.html">
 <h3 class="no-anchor listing-title">
-Monkey’s Uncle Reprise
+<a href="./posts/welcome/index.html" class="no-external">Monkey’s Uncle Reprise</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/welcome/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
 news
@@ -440,14 +503,12 @@ news
 scicomm
 </div>
 </div>
-<a href="./posts/welcome/index.html">
 <div class="listing-description">
-I started writing my blog, Monkey’s Uncle, back in 2008. My wife had major surgery and I was a bit distracted from the task…
+<a href="./posts/welcome/index.html" class="no-external">I started writing my blog, Monkey’s Uncle, back in 2008. My wife had major surgery and I was a bit distracted from the task of academic writing. I thought that having a blog…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/welcome/index.html">
+<a href="./posts/welcome/index.html" class="no-external">
 <div class="listing-date">
 Dec 30, 2023
 </div>
@@ -541,10 +602,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/https:\/\/eehh-stanford\.github\.io\/monkeys_uncle");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -554,8 +632,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -567,7 +654,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -611,6 +821,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -636,6 +847,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -696,6 +933,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
