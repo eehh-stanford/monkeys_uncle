@@ -10,7 +10,7 @@ categories:
 
 I decided to do a cocktail-napkin calculation this morning, as one does. Since Elon Musk bought the social-media platform formerly known as Twitter in October of 2022, there has been a clear shift to the right that many commentators have noted. Earlier this week, on the second day of the Democratic National Convention, Musk posted a Twitter poll about users' preferences between the two presidential candidates, Harris and Trump. His poll, which collected nearly 5.85 million votes, revealed a 73% to 27% preference for Trump. Musk noted that the poll was "super unscientific," but the vibe of the whole thing was that he was presenting the truth that the mainstream media is afraid to print. This has led some to worry that this is part of the ground game for claiming a rigged election if Trump loses.
 
-Most polls indicate that the race is, in fact, very tight, with the two candidates in a nearly even race, though the most recent polls suggest a [small advantage for Harris](https://projects.fivethirtyeight.com/polls/president-general/2024/national/). This implies that Musk's poll differs from the overall consensus by around 20-25 percentage points.
+Most polls indicate that the contest is, in fact, very tight, with the two candidates in a nearly even race, though the most recent polls suggest a [small advantage for Harris](https://projects.fivethirtyeight.com/polls/president-general/2024/national/). This implies that Musk's poll differs from the overall consensus by around 20-25 percentage points.
 
 As with many others, I wondered if maybe this poll is telling us more about the composition of Twitter than it is about the US presidential election. There is [good evidence](https://www.bloomberg.com/news/articles/2024-06-12/elon-musk-has-made-x-more-right-leaning-study-shows) that the platform has shifted [substantially to the right](https://www.pbs.org/newshour/politics/how-elon-musk-uses-his-x-social-media-platform-to-amplify-right-wing-views). [Musk's own posts](https://www.washingtonpost.com/technology/2024/08/11/musk-x-feed-politics-trump/) have also shifted considerably toward right-wing topics.
 
@@ -32,12 +32,15 @@ The difficulty of the inference problem is given by the standard deviation of yo
 
 The last quantity, data quality, is probably the most interesting. It is the correlation between the outcome ($G$) and the sampling mechanism ($R$). We can call this $\rho_{G,R}$.
 
+Consider the sample mean, $\bar{G}_n$. It's a standard estimator of the quantity we're interested in (i.e., $G_N$) because, as Meng notes, it's consistent under both both design and model-based samples. We can write the sample mean in terms of what Meng calls its $R$-Mechanism, where $R$ stands for *Reporting*, *Responding*, or *Responding* for big data or *Random* for a probabilistic sample
+
 $$
 \bar{G}_n=\frac{1}{n} \sum_{j \in I_n} Y_j=\frac{\sum_{j=1}^N R_j G_j}{\sum_{j=1}^N R_j},
 $$
+
 Here $I_n$ is a size-$n$ subset of $\{1, \ldots , N\}$ (i.e., your sample) and $R_j=1$ when $j$ is in the set $I_n$ and zero otherwise.
 
-When we gather a traditional design-based or model-based sample, the $R_j$ are random. However, for a convenience sample (like social media users responding to a poll), they are not random. Meng (2018: 689) writes: "For many Big Data out there, however, they are either self-Reported or administratively Recorded, with no consideration for probabilistic sampling whatsoever. Even in cases where the data collector started with a probabilistic sampling design, as in many social science studies or governmental data projects, in the end we have only observations from those who choose to Respond, a process which again is outside of the probabilistic sampling framework. These "R-mechanisms" therefore are crucial in determining the accuracy of $G_n$ as an estimator of $G_N$". 
+When we gather a traditional design-based or model-based sample, the $R_j$ are random. However, for a convenience sample (like social media users responding to a poll), they are typically not. Meng (2018: 689) writes: "For many Big Data out there, however, they are either self-Reported or administratively Recorded, with no consideration for probabilistic sampling whatsoever. Even in cases where the data collector started with a probabilistic sampling design, as in many social science studies or governmental data projects, in the end we have only observations from those who choose to Respond, a process which again is outside of the probabilistic sampling framework. These "R-mechanisms" therefore are crucial in determining the accuracy of $G_n$ as an estimator of $G_N$". 
 
 We can put this all together to show that the estimation error (i.e., the difference between our sample estimate and the population value) is given by the following remarkably simple formula:
 
@@ -45,7 +48,7 @@ $$
 \hat{G}_n - \hat{G}_N = \rho_{G,R}\;\; \times\;\; \sqrt{\frac{N-n}{n}}\;\; \times\;\; \sigma_G
 $$
 
-If $\rho_{G,R}$ is zero because your response indicator is random, then you have an unbiased estimate. 
+If $\rho_{G,R}$ is zero because your response indicator is random, then you have an unbiased estimate. That is, systematic error is zero and we are back in the familiar realm of probabilistic error with standard errors and the like. 
 
 We can apply this decomposition to Elon Musk's poll.
 
