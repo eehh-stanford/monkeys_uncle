@@ -309,7 +309,7 @@ font-style: inherit;">expression</span>(rho[GR]))</span></code></pre></div>
 <section id="uncertainty-is-horizontal" class="level2">
 <h2 class="anchored" data-anchor-id="uncertainty-is-horizontal">Uncertainty is Horizontal</h2>
 <p>Suppose we have absolute uncertainty over the value of some outcome. That is, we have absolutely no idea what the value could be. What we get is a uniform distribution, which looks like a horizontal line drawn at a height such that the area under it sums to one. If we really have no idea whatsoever what the value can be, then this line goes from minus infinity to infinity and is infinitesimally high.</p>
-<div class="cell" data-fig.asp="1">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">x <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -387,7 +387,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 </div>
 </div>
 <p>We gather data to help us estimate the outcome. The more informative the data are that, the more precise our estimate will be. The effect that this has on our probability distribution is as though we were simultaneously pushing up at the most likely value compatible with the data and down on the extremes. Note that failure to observe extreme values is itself information and the more trials you go without observing extreme events, the more your beliefs shift to believe that extremes are rare.</p>
-<div class="cell" data-fig.asp="1">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">plot</span>(x,<span class="fu" style="color: #4758AB;
@@ -653,7 +653,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 </div>
 </div>
 <p>As we keep adding informative observations, our distribution becomes taller and has shorter tails.</p>
-<div class="cell" data-fig.asp="1">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">plot</span>(x,<span class="fu" style="color: #4758AB;
@@ -794,7 +794,7 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 <p>Again, I will leave the details for a later post, but the upshot is that heavy-tailed distributions break expectations. In a short paper in 2001, John Geweke <a href="https://doi.org/10.1016/S0165-1765(01)00391-3">pointed out the degeneracy of expected utility</a> under heavy-tailed distributions. I don’t think enough people know about this result and I will write much more about it later.</p>
 <p>For now, let’s just let is suffice to say that a heavy tail is kind of like adding back that horizontal element to a probability distribution. The tails aren’t really horizontal, but they’re certainly more horizontal than thin-tailed distribution: by definition, the probability of a heavy-tailed variate decays sub-linearly on a log scale (i.e., slower than exponential).</p>
 <p>Here’s a comparison of our normal distribution with a low-df t-distribution. While the two distributions are centered on the same point, the t-distribution is less peaked, has wider shoulders, and much heavier tails. We are less certain of our estimate.</p>
-<div class="cell" data-fig.asp="1">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">plot</span>(x,<span class="fu" style="color: #4758AB;
@@ -979,9 +979,9 @@ font-style: inherit;">2</span>)</span></code></pre></div>
 </div>
 </div>
 </div>
-<p>It’s common to refer to extreme events by the number of standard deviations they are from the mean. As the conventional variable name for standard deviation is <img src="https://latex.codecogs.com/png.latex?%5Csigma">, we call something the magnitude of which is two standard deviations away from the mean a <img src="https://latex.codecogs.com/png.latex?2%5Csigma"> event, and so on. From the figure, we can see that while the probability of observing a <img src="https://latex.codecogs.com/png.latex?4%5Csigma"> event is essentially zero for the normal distribution, the probability of a <img src="https://latex.codecogs.com/png.latex?6%5Csigma"> event is approximately 1% (1 year out of 100). The probability of a <img src="https://latex.codecogs.com/png.latex?9%5Csigma"> event is 0.5% and of a <img src="https://latex.codecogs.com/png.latex?10%5Csigma"> event is 0.3%. Another way to think about that is that we should expect a <img src="https://latex.codecogs.com/png.latex?10%5Csigma"> event approximately every 300 years or about 12 human generations.</p>
+<p>It’s common to refer to extreme events by the number of standard deviations they are from the mean. As the conventional variable name for standard deviation is <img src="https://latex.codecogs.com/png.latex?%5Csigma"> (i.e., the Greek letter sigma), we call something the magnitude of which is two standard deviations away from the mean a <img src="https://latex.codecogs.com/png.latex?2%5Csigma"> event, and so on. From the figure, we can see that while the probability of observing a <img src="https://latex.codecogs.com/png.latex?4%5Csigma"> event is essentially zero for the normal distribution, the probability of a <img src="https://latex.codecogs.com/png.latex?6%5Csigma"> event is approximately 1% (1 year out of 100) for the <img src="https://latex.codecogs.com/png.latex?t"> distribution. The probability of a <img src="https://latex.codecogs.com/png.latex?9%5Csigma"> event is 0.5% and of a <img src="https://latex.codecogs.com/png.latex?10%5Csigma"> event is 0.3%. Another way to think about that is that we should expect a <img src="https://latex.codecogs.com/png.latex?10%5Csigma"> event approximately every 300 years or about 12 human generations.</p>
 <p>The nonzero probability of these very extreme events causes the variance to blow up. The variance is, in fact, infinite for this distribution (and for <img src="https://latex.codecogs.com/png.latex?df=1">, the mean is undefined since a standard t-distribution with one degree of freedom is also a <a href="https://en.wikipedia.org/wiki/Cauchy_distribution">Cauchy</a> (0,1) distribution).</p>
-<p>It’s touch to try to minimize variance when the variance is infinite! It’s also impossible to rank prospects according to their moments (e.g., mean and variance) when the moments aren’t defined.</p>
+<p>It’s tough to minimize variance when the variance is infinite! It’s also impossible to rank prospects according to their moments (e.g., mean and variance) when the moments aren’t defined.</p>
 <p>Organisms (like humans) who face real—or <em>Knightian</em>—uncertainty still need to make decisions. If they can’t choose on the basis of expectations, what do they do? It’s an important question and will be the subject of future posts and (hopefully) forthcoming papers.</p>
 
 
