@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,8 +62,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -68,10 +76,10 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Monkey’s Uncle</span>
     </a>
@@ -83,33 +91,33 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/juemos" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/juemos"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://bsky.app/profile/juemos.bsky.social" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://bsky.app/profile/juemos.bsky.social"> <i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://fediscience.org/@juemos" rel="" target=""><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://fediscience.org/@juemos"> <i class="bi bi-mastodon" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../index.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -157,9 +165,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="termination_shock_cover.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<p><img src="termination_shock_cover.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
 </figure>
 </div>
 <p>I just re-read Neal Stephenson’s Climate-Fiction novel, <em>Termination Shock</em>. I read this the moment it was published in 2021 and enjoyed it immensely. Having recently finished my winter class, <a href="https://eehh-stanford.github.io/monkeys_uncle/posts/clifi2023/">Imagining Adaptive Societies</a>, where I riffed on a few Stephenson-vs.-Robinson comparisons, and lacking anything I desperately wanted to read, it seemed like an opportune time to revisit.</p>
@@ -176,9 +185,9 @@ ul.task-list li input[type="checkbox"] {
 <p>In a warmer world, it will be increasingly difficult for people (and other organisms) to maintain physiological homeostasis—i.e., stay cool. Normal core temperature for humans is 37°C. Homeostatic mechanisms work to maintain this temperature and tolerances around it are actually quite tight: a 4° increase or 2° decrease can be life-threatening.</p>
 <p>Humans have at most about 30% mechanical efficiency. This means that 70% of the work we do ends up generating heat. Our primary mechanism for dumping excess heat in order to maintain homeostasis is the evaporative cooling that comes from sweating. For a thermal challenge to be compensable, there must be a water-vapor pressure gradient between the skin surface and the surrounding environment. If the air is saturated, there’s no gradient and the thermal challenge is uncompensable.</p>
 <p>Wet-bulb temperature (WBT) is the lowest temperature that can be reached under ambient conditions by the evaporation of water only. As the WBT increases past 26°C (79°F), it starts to become dangerous. The 2003 European heat wave, which killed 20,000 people, maxed out with a WBT of 28°C. Anything over 30 is very dangerous and a WBT of 35°C (about 95°F) is not survivable by humans for more than about 20 minutes. Until quite recently, it’s been thought that a WBT of 35°C was effectively impossible under the prevailing climatic conditions of Earth, but as of 2020, there here have been at least <a href="https://doi.org/10.1126/sciadv.aaw1838">14 verified recordings</a> of WBT in excess of the 35°C threshold of human survivability in the Persian Gulf and Pakistan since 1979. Climate change will increases these events. Modeling studies by <a href="https://doi.org/10.1126/sciadv.1603322">Im and colleagues (2017)</a> and <a href="https://doi.org/10.1038/s41467-018-05252-y">Kang and Eltahir (2018)</a> project heatwaves that will cross this critical threshold repeatedly in the next 30 years in the hugely-populous areas of the Gangetic Plain in India and the North China Plain in China. These two regions sum to more than a billion people.</p>
-<p>Dangerous WBTs will be <a href="https://climateprimer.mit.edu">increasingly common</a> in the United States as well. The worst regions look like they will be in the Mississippi River basin, spilling over into East Texas. These are areas where high summer temperatures combine with extreme humidity and that’s the combination that makes for dangers WBTs.</p>
+<p>Dangerous WBTs will be <a href="https://climateprimer.mit.edu">increasingly common</a> in the United States as well. The worst regions look like they will be in the Mississippi River basin, spilling over into East Texas. These are areas where high summer temperatures combine with extreme humidity and that’s the combination that makes for dangerous WBTs.</p>
 <p>In <em>Termination Shock</em>, we read about people requiring earthsuits to work during the day in Waco and along the Brazos River to Houston, as well as at protests on the campus of Texas A&amp;M in College Station and the West Texas ranch belonging to T.R. Schmidt, the billionaire who wildcats a geoengineering solution to global warming.</p>
-<p>Earthsuits are described as “a whole basket of technologies, some of which belonged to the realm of materials science, such as fabric, or of mechanical engineering, such as pumps and fans.” But really the core of the suit was a portable refrigeration system, which is an <a href="https://www.greenoptimistic.com/einstein-refrigerator/">Einstein–Szilard refrigerator</a>. It’s a cool idea (as it were) and might actually be workable in the not-too-distant future, though whether we will have functional suits (as opposed to structures) cooled by Einstein–Szilard refrigerator is an open question.</p>
+<p>Earthsuits are described as “a whole basket of technologies, some of which belonged to the realm of materials science, such as fabric, or of mechanical engineering, such as pumps and fans.” But really the core of the suit was a portable refrigeration system, which is an <a href="https://www.greenoptimistic.com/einstein-refrigerator/">Einstein–Szilard refrigerator</a>. It’s a cool idea (as it were) and might actually be workable in the not-too-distant future, though whether we will have functional suits (as opposed to structures) cooled by Einstein–Szilard refrigerators is an open question.</p>
 <p>The simple fact is that the large swaths of the United States, including the second-largest state by population and the <a href="https://www.census.gov/newsroom/press-releases/2023/population-trends-return-to-pre-pandemic-norms.html">region that has driven population growth</a> in recent years, are largely uninhabitable without substantial technological innovation and (presumably expensive) adaptation in the mid-2030s world of <em>Termination Shock</em>, is troubling to say the least. This strikes me as an outcome that is worth organizing to prevent.</p>
 </section>
 <section id="perpetual-multidemic" class="level3">
@@ -193,10 +202,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="2023-feral-swine-population-map.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Distribution of feral swine in the US in 2023 (<a href="https://www.aphis.usda.gov/operational-wildlife-activities/feral-swine/distribution">USDA</a>)</figcaption>
+<figcaption>Distribution of feral swine in the US in 2023 (<a href="https://www.aphis.usda.gov/operational-wildlife-activities/feral-swine/distribution">USDA</a>)</figcaption>
 </figure>
 </div>
-<p>The swine are not the only invasive species that creates mischief in <em>Termination Shock</em>. Invasive fire ants, apparently attracted to the ozone of residential air-conditioning units, get into the units and interfere with the electrical relays that control the units, making them non-functional. In the Summer of the Great Relay Shortage, this happened on a massive scale, overwhelming the capacity of the supply chain to provide replacement relays and thereby displacing hundreds of thousands of Texans in the potentially deadly heat and humidity. (this, by the way, is another <a href="https://www.kennedyac.com/post/protecting-your-air-conditioning-unit-from-ants">real phenomenon</a>)</p>
+<p>The swine are not the only invasive species that creates mischief in <em>Termination Shock</em>. Invasive fire ants, apparently attracted to the ozone of residential air-conditioning units, get into the units and interfere with the electrical relays that control them, making them non-functional. In the Summer of the Great Relay Shortage, this happened on a massive scale, overwhelming the capacity of the supply chain to provide replacement relays and thereby displacing hundreds of thousands of Texans in the potentially deadly heat and humidity. (this, by the way, is another <a href="https://www.kennedyac.com/post/protecting-your-air-conditioning-unit-from-ants">real phenomenon</a>)</p>
 <p>Sounds like a lot of fun.</p>
 </section>
 <section id="ominous-geopolitical-suggestions" class="level3">
@@ -298,10 +307,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/https:\/\/eehh-stanford\.github\.io\/monkeys_uncle");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -311,8 +337,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -324,7 +359,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -368,6 +526,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -393,6 +552,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -453,6 +638,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
