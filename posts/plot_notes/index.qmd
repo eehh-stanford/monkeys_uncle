@@ -14,7 +14,6 @@ To supplement lecture this year, I have assembled some notes on interpreting and
 
 An example of the sort of scientific figure we work with is the [Noy-Meir (1975)](https://doi.org/10.2307/2258730) model for stability of grazing systems. The following figure represents the core idea of Noy-Meir's model.
 
-
 ```{r}
 #| fig-asp: 1
 # Logistic Recruitment
@@ -44,13 +43,13 @@ arrows(57.497146+1, 10.441517+2, 57.497146+7.5, 10.441517+2, code=1, lwd=3, leng
 text(c(59.13355, 86.65497), c(11.458140,  6.107494), c("F2", "F1"))
 ```
 
-The primary producers have a logistic recruitment curve, while grazers follow a Holling Type II functional response. Points where these curves intersect represent equilibria of the system. The green points are stable, whereas the red points are unstable (stability indicated by the grey arrows above the curves). The two consumption curves represent potential slow-forcing of the system from population growth of the consumer. Population growth can easily lead to the loss of the stable equilibria of the system, leading to catastrophic collapse. 
+The primary producers have a logistic recruitment curve, while grazers follow a Holling Type II functional response. Points where these curves intersect represent equilibria of the system. The green points are stable, whereas the red points are unstable (stability indicated by the grey arrows above the curves). The two consumption curves represent potential slow-forcing of the system from population growth of the consumer. Population growth can easily lead to the loss of the stable equilibria of the system, leading to catastrophic collapse.
 
 To be honest, I'm not sure if these notes will ever move beyond class notes. So far, I have four chapters:
 
-1. interpreting scientific figures
-2. drawing a rogues' gallery of classic figures from theoretical ecology, behavioral ecology, economics, and complexity theory
-3. "actual graphs" (i.e., networks)
-4. numerically integrating (and plotting!) ODEs
+1.  interpreting scientific figures
+2.  drawing a rogues' gallery of classic figures from theoretical ecology, behavioral ecology, economics, and complexity theory
+3.  "actual graphs" (i.e., networks)
+4.  numerically integrating (and plotting!) ODEs
 
 These are my various non-standard uses for `R` graphics (i.e., as opposed to actually plotting data!).
