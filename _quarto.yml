@@ -10,7 +10,7 @@ website:
       - about.qmd
       - icon: github
         href: https://github.com/juemos
-      - icon: twitter
+      - icon: bluesky
         href: https://bsky.app/profile/juemos.bsky.social
       - icon: mastodon
         href: https://fediscience.org/@juemos
